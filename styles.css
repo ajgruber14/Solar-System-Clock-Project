@@ -1,0 +1,293 @@
+:root {
+    --orbit-path: rgba(175, 175, 175, 0.1);
+    --clock-font-color: rgb(120, 120, 120);
+    --dark-gray:    rgb(50, 50, 50);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    max-width: 1600px;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    color: rgb(220, 220, 220);
+    margin-top: 38px;
+    filter: drop-shadow(0 3px 2px rgba(140, 140, 140, 0.75));
+}
+
+.clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solar-system-clock {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* resize clock */
+    -webkit-transform:scale(0.9);
+    -moz-transform:scale(0.9);
+    -ms-transform:scale(0.9);
+    transform:scale(0.9);
+}
+
+.solar-system-clock .time {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.seconds {
+    /*background: red;*/
+    width: 0.1px;
+    height: 17.5%;
+    z-index: 3;
+    transition: all 1s linear;
+}
+    .seconds::after {
+        content: '';
+        position: absolute;
+        top: -16px;
+        left: -9px;
+        width: 20px;
+        height: 20px;
+        background-image: url(/images/Mercury.png);
+        background-size: contain;
+        border-radius: 50%;
+    }
+    .mercury-orbit-path {
+        position: absolute;
+        top: 138px;
+        left: 138px;
+        width: 172px;
+        height: 172px;
+        border: 1px solid var(--orbit-path);
+        border-radius: 50%;
+    }
+
+
+.minutes {
+    /*background: red;*/
+    width: 0.1px;
+    height: 27.5%;
+    z-index: 2;
+    transition: all 1s linear;
+}
+    .minutes::after {
+        content: '';
+        position: absolute;
+        top: -25px;
+        left: -12.5px;
+        width: 25px;
+        height: 25px;
+        background-image: url(/images/Venus.png);
+        background-size: contain;
+        border-radius: 50%;
+    }
+    .venus-orbit-path {
+        position: absolute;
+        top: 90px;
+        left: 89px;
+        width: 272px;
+        height: 272px;
+        border: 1px solid var(--orbit-path);
+        border-radius: 50%;
+    }
+
+
+.hours {
+    /*background: red;*/
+    width: 0.1px;
+    height: 39.5%;
+    z-index: 1;
+    transition: all 1s linear;
+}
+    .hours::after {
+        content: '';
+        position: absolute;
+        top: -35px;
+        left: -17.5px;
+        width: 35px;
+        height: 35px;
+        background-image: url(/images/earth.png);
+        background-size: contain;
+        border-radius: 50%;
+    }
+    .earth-orbit-path {
+        position: absolute;
+        top: 32px;
+        left: 28px;
+        width: 390px;
+        height: 390px;
+        border: 1px solid var(--orbit-path);
+        border-radius: 50%;
+    }
+
+
+.hour-num, .min-num, .sec-num {font-family: 'Noto Sans', sans-serif; color: var(--clock-font-color);}
+
+.solar-system-clock .hour-num {
+    --rotation: 0;
+    position: absolute;
+    top: 3%;
+    left: 2.5%;
+    width: 95%;
+    height: 95%;
+    font-size: 25px;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+.solar-system-clock .hour-num1  {--rotation: 30deg; }
+.solar-system-clock .hour-num2  {--rotation: 60deg; }
+.solar-system-clock .hour-num3  {--rotation: 90deg; }
+.solar-system-clock .hour-num4  {--rotation: 120deg;}
+.solar-system-clock .hour-num5  {--rotation: 150deg;}
+.solar-system-clock .hour-num6  {--rotation: 180deg;}
+.solar-system-clock .hour-num7  {--rotation: 210deg;}
+.solar-system-clock .hour-num8  {--rotation: 240deg;}
+.solar-system-clock .hour-num9  {--rotation: 270deg;}
+.solar-system-clock .hour-num10 {--rotation: 300deg;}
+.solar-system-clock .hour-num11 {--rotation: 330deg;}
+.solar-system-clock .hour-num12 {--rotation: 0;     }
+
+
+.solar-system-clock .min-num {
+    --rotation: 0;
+    position: absolute;
+    top: 17.5%;
+    left: 17.5%;
+    width: 65%;
+    height: 65%;
+    font-size: 15px;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+.solar-system-clock .min-num5  {--rotation: 30deg; }
+.solar-system-clock .min-num10 {--rotation: 60deg; }
+.solar-system-clock .min-num15 {--rotation: 90deg; }
+.solar-system-clock .min-num20 {--rotation: 120deg;}
+.solar-system-clock .min-num25 {--rotation: 150deg;}
+.solar-system-clock .min-num30 {--rotation: 180deg;}
+.solar-system-clock .min-num35 {--rotation: 210deg;}
+.solar-system-clock .min-num40 {--rotation: 240deg;}
+.solar-system-clock .min-num45 {--rotation: 270deg;}
+.solar-system-clock .min-num50 {--rotation: 300deg;}
+.solar-system-clock .min-num55 {--rotation: 330deg;}
+.solar-system-clock .min-num60 {--rotation: 0;     }
+
+
+.solar-system-clock .sec-num {
+    /*border: 0.25px solid var(--orbit-path);*/
+    --rotation: 0;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    font-size: 6px;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+.solar-system-clock .sec-num1  {--rotation: 6deg;  }
+.solar-system-clock .sec-num2  {--rotation: 12deg; }
+.solar-system-clock .sec-num3  {--rotation: 18deg; }
+.solar-system-clock .sec-num4  {--rotation: 24deg; }
+.solar-system-clock .sec-num5  {--rotation: 30deg; }
+.solar-system-clock .sec-num6  {--rotation: 36deg; }
+.solar-system-clock .sec-num7  {--rotation: 42deg; }
+.solar-system-clock .sec-num8  {--rotation: 48deg; }
+.solar-system-clock .sec-num9  {--rotation: 54deg; }
+.solar-system-clock .sec-num10 {--rotation: 60deg; }
+.solar-system-clock .sec-num11 {--rotation: 66deg; }
+.solar-system-clock .sec-num12 {--rotation: 72deg; }
+.solar-system-clock .sec-num13 {--rotation: 78deg; }
+.solar-system-clock .sec-num14 {--rotation: 84deg; }
+.solar-system-clock .sec-num15 {--rotation: 90deg; }
+.solar-system-clock .sec-num16 {--rotation: 96deg; }
+.solar-system-clock .sec-num17 {--rotation: 102deg;}
+.solar-system-clock .sec-num18 {--rotation: 108deg;}
+.solar-system-clock .sec-num19 {--rotation: 114deg;}
+.solar-system-clock .sec-num20 {--rotation: 120deg;}
+.solar-system-clock .sec-num21 {--rotation: 126deg;}
+.solar-system-clock .sec-num22 {--rotation: 132deg;}
+.solar-system-clock .sec-num23 {--rotation: 138deg;}
+.solar-system-clock .sec-num24 {--rotation: 144deg;}
+.solar-system-clock .sec-num25 {--rotation: 150deg;}
+.solar-system-clock .sec-num26 {--rotation: 156deg;}
+.solar-system-clock .sec-num27 {--rotation: 162deg;}
+.solar-system-clock .sec-num28 {--rotation: 168deg;}
+.solar-system-clock .sec-num29 {--rotation: 174deg;}
+.solar-system-clock .sec-num30 {--rotation: 180deg;}
+.solar-system-clock .sec-num31 {--rotation: 186deg;}
+.solar-system-clock .sec-num32 {--rotation: 192deg;}
+.solar-system-clock .sec-num33 {--rotation: 198deg;}
+.solar-system-clock .sec-num34 {--rotation: 204deg;}
+.solar-system-clock .sec-num35 {--rotation: 210deg;}
+.solar-system-clock .sec-num36 {--rotation: 216deg;}
+.solar-system-clock .sec-num37 {--rotation: 222deg;}
+.solar-system-clock .sec-num38 {--rotation: 228deg;}
+.solar-system-clock .sec-num39 {--rotation: 234deg;}
+.solar-system-clock .sec-num40 {--rotation: 240deg;}
+.solar-system-clock .sec-num41 {--rotation: 246deg;}
+.solar-system-clock .sec-num42 {--rotation: 252deg;}
+.solar-system-clock .sec-num43 {--rotation: 258deg;}
+.solar-system-clock .sec-num44 {--rotation: 264deg;}
+.solar-system-clock .sec-num45 {--rotation: 270deg;}
+.solar-system-clock .sec-num46 {--rotation: 276deg;}
+.solar-system-clock .sec-num47 {--rotation: 282deg;}
+.solar-system-clock .sec-num48 {--rotation: 288deg;}
+.solar-system-clock .sec-num49 {--rotation: 294deg;}
+.solar-system-clock .sec-num50 {--rotation: 300deg;}
+.solar-system-clock .sec-num51 {--rotation: 306deg;}
+.solar-system-clock .sec-num52 {--rotation: 312deg;}
+.solar-system-clock .sec-num53 {--rotation: 318deg;}
+.solar-system-clock .sec-num54 {--rotation: 324deg;}
+.solar-system-clock .sec-num55 {--rotation: 330deg;}
+.solar-system-clock .sec-num56 {--rotation: 336deg;}
+.solar-system-clock .sec-num57 {--rotation: 342deg;}
+.solar-system-clock .sec-num58 {--rotation: 348deg;}
+.solar-system-clock .sec-num59 {--rotation: 354deg;}
+.solar-system-clock .sec-num60 {--rotation: 0deg;  }
+
+
+.credit {
+    width: 80%;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(120, 120, 120);
+}
+
+.credit-highlight {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
