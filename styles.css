@@ -73,7 +73,7 @@ h1 {
         left: -9px;
         width: 20px;
         height: 20px;
-        background-image: url(/images/mercury.png);
+        background-image: url(/images/Mercury.png);
         background-size: contain;
         border-radius: 50%;
     }
@@ -102,7 +102,7 @@ h1 {
         left: -12.5px;
         width: 25px;
         height: 25px;
-        background-image: url(/images/venus.png);
+        background-image: url(/images/Venus.png);
         background-size: contain;
         border-radius: 50%;
     }
