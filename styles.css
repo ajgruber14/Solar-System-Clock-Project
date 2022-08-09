@@ -1,7 +1,41 @@
 :root {
-    --orbit-path: rgba(175, 175, 175, 0.1);
-    --clock-font-color: rgb(120, 120, 120);
-    --dark-gray:    rgb(50, 50, 50);
+    /* LIGHT THEME */
+    --LT-header-gray:                  rgb(50, 50, 50);
+    --LT-header-drop-shadow:           rgba(119, 119, 119, 0.716);
+    --LT-credit-note-gray:             rgb(68, 68, 68);
+    --LT-link-color:                   rgb(0, 122, 183);
+    --LT-intro-border-gray:            rgb(210, 210, 210);
+    --LT-review-section-container1:    rgb(250, 250, 250);
+    --LT-review-section-container2:    rgb(235, 235, 235);
+    --LT-snippet-bg-gray:              rgb(50, 50, 50);
+    --LT-snippet-box-shadow:           rgba(37, 38, 54, 0.716);
+    --LT-code-box-shadow:              rgba(37, 38, 54, 0.716);
+
+    /* SHARED */
+    --code-webkit-scrlbr-border:       rgb(48, 48, 55);
+    --code-wbkt-scrlbr-bg:             rgb(220, 220, 220);
+
+    /* DARK THEME */
+    --DK-header-gray:                  rgb(220, 220, 220);
+    --DK-header-drop-shadow:           rgba(100, 100, 100, 0.75);
+    --DK-credit-note-gray:             rgb(150, 150, 150);
+    --DK-link-color:                   rgb(0, 183, 82);
+    --DK-intro-border-gray:            rgb(80, 80, 80);
+    --DK-main-text-color-gray:         rgb(200, 200, 200);
+    --DK-note-color-gray:              rgb(150, 150, 150);
+    --DK-review-section-container1:    rgb(30, 30, 30);
+    --DK-review-section-container2:    rgb(15, 15, 15);
+    --DK-snippet-color:                rgb(40, 40, 40);
+    --DK-snippet-bg:                   rgb(240, 240, 240);
+    --DK-snippet-box-shadow:           rgba(190, 190, 190, 0.716);
+    --DK-code-box-shadow:              rgba(15, 15, 23, 0.716);
+
+    /* PAGE SPECIFIC */
+    --orbit-path:                      rgba(175, 175, 175, 0.1);
+    --clock-font-color:                rgb(120, 120, 120);
+    --DK-time-grp-webkit-scrlbr-border:rgb(20, 20, 20);
+    --DK-time-grp-webkit-scrlbr-bg:    rgb(220, 220, 220);
+    --DK-time-grp-wrapper-border:      rgb(48, 48, 55);
 }
 
 * {
@@ -37,7 +71,7 @@ h1 {
     font-size: 30px;
     text-align: center;
     letter-spacing: 1.5px;
-    color: rgb(200, 200, 200);
+    color: var(--DK-header-gray);
     margin: 30px 0 30px 0;
     filter: drop-shadow(0 3px 2px rgba(100, 100, 100, 0.75));
 }
@@ -392,7 +426,7 @@ h1 {
     margin: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    color: rgb(150, 150, 150);
+    color: var(--DK-credit-note-gray);
 }
 
 .credit-highlight {
@@ -404,20 +438,20 @@ h1 {
 a {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
-    color: rgb(0, 183, 82);
+    color: var(--DK-link-color);
 }
 
 
 .introduction {
-    border: 2px dashed rgb(80, 80, 80);
+    border: 2px dashed var(--DK-intro-border-gray);
     width: 80%;
     margin: 30px 0 15px 0;
     padding: 10px 10px;
-    color: rgb(200, 200, 200);
+    color: var(--DK-main-text-color-gray);
 }
 
 .note {
-    color: rgb(150, 150, 150);
+    color: var(--DK-credit-note-gray);
     font-size: 14px;
     margin: 20px 0 15px 0;
 }
@@ -428,8 +462,8 @@ a {
     margin-bottom: 15px;
     padding: 20px 15px;
     border-radius: 2px;
-    background: linear-gradient(rgb(30, 30, 30), rgb(15, 15, 15));
-    color: rgb(200, 200, 200);
+    background: linear-gradient(var(--DK-review-section-container1), var(--DK-review-section-container2));
+    color: var(--DK-main-text-color-gray);
 }
 
 #js-container {
@@ -437,8 +471,8 @@ a {
     margin: 0 0 80px 0;
     padding: 20px 15px 5px 15px;
     border-radius: 2px;
-    background: linear-gradient(rgb(30, 30, 30), rgb(15, 15, 15));
-    color: rgb(200, 200, 200);
+    background: linear-gradient(var(--DK-review-section-container1), var(--DK-review-section-container2));
+    color: var(--DK-main-text-color-gray);
 }
 
 .subsection {
@@ -462,21 +496,20 @@ a {
 
 .snippet {
     font-family: 'Menlo', Arial, Helvetica !important;
-    color: rgb(40, 40, 40);
+    color: var(--DK-snippet-color);
     padding: 2px 6px;
     border-radius: 2px;
-    background-color: rgb(240, 240, 240);
-    box-shadow: 0 2px 5px rgba(190, 190, 190, 0.716) !important;
+    background-color: var(--DK-snippet-bg);
+    box-shadow: 0 2px 5px var(--DK-snippet-box-shadow) !important;
 }
 
 pre {margin: 50px 0 30px 0;}
 
 code {
     font-family: 'Menlo', Arial, Helvetica !important;
-    color: white;
     font-size: 14px;
     border-radius: 3px;
-    box-shadow: 0 5px 10px rgba(15, 15, 23, 0.716);
+    box-shadow: 0 5px 10px var(--DK-code-box-shadow);
     overflow-y: hidden;
 }
 
@@ -485,19 +518,19 @@ code::-webkit-scrollbar, .time-group-wrapper::-webkit-scrollbar {
     border-radius: 10px;
 }
 code::-webkit-scrollbar-thumb {
-    border: 4px solid rgb(48, 48, 55);
+    border: 4px solid var(--code-webkit-scrlbr-border);
     border-radius: 10px;
-    background: rgb(220, 220, 220);
+    background: var(--code-wbkt-scrlbr-bg);
 }
 
 .time-group-wrapper::-webkit-scrollbar-thumb {
-    border: 4px solid rgb(20, 20, 20);
+    border: 4px solid var(--DK-time-grp-webkit-scrlbr-border);
     border-radius: 10px;
-    background: rgb(220, 220, 220);
+    background: var(--DK-time-grp-webkit-scrlbr-bg);
 }
 
 .time-group-wrapper {
-    border: 2px solid rgb(48, 48, 55);
+    border: 2px solid var(--DK-time-grp-wrapper-border);
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
