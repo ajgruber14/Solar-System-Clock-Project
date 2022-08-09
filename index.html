@@ -7,12 +7,15 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/cc9e69ed66.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <title>Solar System Clock Project</title>
 </head>
 <body>
     <h1>Solar System Clock Project</h1>
     <section class="clock-container">
-        <div id="solar-system-clock" class="solar-system-clock">
+        <div class="solar-system-clock">
             <div class="time seconds" data-seconds></div>
             <div class="time minutes" data-minutes></div>
             <div class="time hours"   data-hours></div>
@@ -110,7 +113,244 @@
             <div class="sun"></div>
         </div>
     </section>
-    <p class="credit">Designed by: <strong>ajgruber14</strong> <u class="credit-highlight">Check out more of my breakdown projects on GitHub</u> <a href="https://www.github.com/ajgruber14" target="_blank" rel="noreferrer noopener">here</a></p>
+    <!-- <button id="toggle">toggle borders</button> for future use -->
+    <p class="credit">Designed by <strong>ajgruber14</strong> <u class="credit-highlight">Check out more of my breakdown projects on GitHub</u> <a href="https://www.github.com/ajgruber14" target="_blank" rel="noreferrer noopener">here</a></p>
+    <p class="credit">Check out <strong>Web Dev Simplified</strong> for a full video explaining how to manipulate a date object an create a traditional clock <a href="https://www.youtube.com/watch?v=Ki0XXrlKlHY" target="_blank" rel="noreferrer noopener">here</a></p>
+    <section class="introduction">
+        <p class="summary">
+            This solar system clock was designed by myself primarily using HTML and CSS. The Javascript portion of this project is used to synchronize the clock with the client's relative time and provide an accurate rate of rotation for each planet.
+        </p>
+        <p class="summary">Credit is due to <strong>Web Dev Simplified</strong> for providing a technique to model time values from a date object in 360 degrees.</p>
+        <p class="note">
+            <strong>note:</strong> Some of the information and terms used in the breakdown below may contain inaccuracies as this is a novice interpretation of js syntax. If you notice any errors 
+            or would like to provide further clarification, feel free to reach out and/or correct me!
+        </p>
+    </section>
+    
+
+    <section class="html-container">
+        <h3 class="subsection">HTML</h3>
+        <p class="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <code class="snippet">&#x3C;for later use&#x3E;</code>
+        <ul class="summary-list">
+            <li class="li-heading"><strong>subheader</strong></li>
+            <li>bullet</li>
+        </ul>
+
+        <pre><code class="language-html">
+&lt;div class=&quot;solar-system-clock&quot;&gt;
+    &lt;div class=&quot;time seconds&quot; data-seconds&gt;&lt;/div&gt;
+    &lt;div class=&quot;time minutes&quot; data-minutes&gt;&lt;/div&gt;
+    &lt;div class=&quot;time hours&quot; data-hours&gt;&lt;/div&gt;
+        </code></pre>
+
+        <pre><code class="language-html">
+    &lt;div class=&quot;hour-num hour-num1&quot;  &gt;1&lt;/div&gt;
+    &lt;div class=&quot;hour-num hour-num2&quot;  &gt;2&lt;/div&gt;
+    ...
+    &lt;div class=&quot;hour-num hour-num12&quot;&gt;12&lt;/div&gt;
+
+
+    &lt;div class=&quot;min-num min-num5 &quot; &gt;5&lt;/div&gt;
+    &lt;div class=&quot;min-num min-num10&quot;&gt;10&lt;/div&gt;
+    ...
+    &lt;div class=&quot;min-num min-num60&quot;&gt;60&lt;/div&gt;
+
+
+    &lt;div class=&quot;sec-num sec-num1&quot;  &gt;1&lt;/div&gt;
+    &lt;div class=&quot;sec-num sec-num2&quot;  &gt;2&lt;/div&gt;
+    ...
+    &lt;div class=&quot;sec-num sec-num60&quot;&gt;60&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+    </section>
+
+
+    <section class="css-container">
+        <h3 class="subsection">CSS</h3>
+        <p class="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <pre><code class="language-css">
+.solar-system-clock {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+        </code></pre>
+        <pre><code class="language-css">
+.solar-system-clock .time {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+        </code></pre>
+
+        <section class="time-group-wrapper">
+        <pre class="time-group"><code class="language-css">
+.seconds {
+    width: 0.1px;
+    height: 17.5%;
+    z-index: 3;
+    transition: all 1s linear;
+}
+
+.seconds::after {
+    content: '';
+    position: absolute;
+    top: -17px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: yellow;
+    border-radius: 50%;
+}
+        </code></pre>
+        <pre class="time-group"><code class="language-css">
+.minutes {
+    width: 0.1px;
+    height: 27.5%;
+    z-index: 2;
+    transition: all 1s linear;
+}
+
+.minutes::after {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -12.5px;
+    width: 25px;
+    height: 25px;
+    background: orange;
+    border-radius: 50%;
+}
+        </code></pre>
+        <pre class="time-group"><code class="language-css">
+.hours {
+    width: 0.1px;
+    height: 27.5%;
+    z-index: 2;
+    transition: all 1s linear;
+}
+
+.hours::after {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -12.5px;
+    width: 25px;
+    height: 25px;
+    background: red;
+    border-radius: 50%;
+}
+        </code></pre>
+        </section>
+
+        <section class="time-group-wrapper">
+        <pre class="time-group"><code class="language-css">
+.solar-system-clock .hour-num {
+    --rotation: 0;
+    position: absolute;
+    top: 3%;
+    left: 2.5%;
+    width: 95%;
+    height: 95%;
+    font-size: 20px;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+
+.solar-system-clock .hour-num1  {--rotation: 30deg; }
+.solar-system-clock .hour-num2  {--rotation: 60deg; }
+...
+.solar-system-clock .hour-num11 {--rotation: 330deg;}
+.solar-system-clock .hour-num12 {--rotation: 0;     }
+        </code></pre>
+        <pre class="time-group"><code class="language-css">
+.solar-system-clock .min-num {
+    --rotation: 0;
+    position: absolute;
+    top: 17.5%;
+    left: 17.5%;
+    width: 65%;
+    height: 65%;
+    font-size: 15px;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+
+.solar-system-clock .min-num5  {--rotation: 30deg; }
+.solar-system-clock .min-num10 {--rotation: 60deg; }
+...
+.solar-system-clock .min-num55 {--rotation: 330deg;}
+.solar-system-clock .min-num60 {--rotation: 0;     }
+        </code></pre>
+        <pre class="time-group"><code class="language-css">
+.solar-system-clock .sec-num {
+    --rotation: 0;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    font-size: 6px;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+
+.solar-system-clock .sec-num1  {--rotation: 6deg;  }
+.solar-system-clock .sec-num2  {--rotation: 12deg; }
+...
+.solar-system-clock .sec-num59 {--rotation: 354deg;}
+.solar-system-clock .sec-num60 {--rotation: 0deg;  }
+        </code></pre>
+        </section>
+    </section>
+    
+    <section id="js-container">
+        <h3 class="subsection">Javascript</h3>
+        <p class="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+
+        <pre><code class="language-javascript">
+const seconds = document.querySelector('[data-seconds]');
+const minutes = document.querySelector('[data-minutes]');
+const hours   = document.querySelector('[data-hours]');
+        </code></pre>
+
+
+        <pre><code class="language-javascript">
+setInterval(setClock, 1000);
+
+function setClock() {
+    const currentDate  = new Date;
+    const secondsRatio = currentDate.getSeconds() / 60;
+    const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60;
+    const hoursRatio   = (minutesRatio + currentDate.getHours()) / 12;
+
+    setRotation(seconds, secondsRatio);
+    setRotation(minutes, minutesRatio);
+    setRotation(hours,   hoursRatio );
+}
+        </code></pre>
+
+
+        <pre><code class="language-javascript">
+function setRotation(element, rotationRatio) {
+    element.style.setProperty('--rotation', rotationRatio * 360);
+}
+        </code></pre>
+
+
+        <pre><code class="language-javascript">
+setClock();
+        </code></pre>
+        <p class="summary">setClock() is the final piece to the project. It initiates the setClock function upon loading!</p>
+
+    </section>
     <script src="main.js"></script>
 </body>
 </html>
