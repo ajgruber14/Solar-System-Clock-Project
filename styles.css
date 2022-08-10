@@ -541,7 +541,7 @@ code::-webkit-scrollbar-thumb {
     overflow: scroll;
     overflow-y: hidden;
 
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: x mandatory;
 }
 
 .time-group {
