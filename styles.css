@@ -540,9 +540,14 @@ code::-webkit-scrollbar-thumb {
     padding: 12px 2px 2px 2px;
     overflow: scroll;
     overflow-y: hidden;
+
+    scroll-snap-type: y mandatory;
 }
 
 .time-group {
     margin: 0 5px;
     min-width: 400px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
