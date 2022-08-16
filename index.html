@@ -6,14 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/cc9e69ed66.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
+    <script src="main.js" defer></script>
     <title>Solar System Clock Project</title>
 </head>
 <body>
-    <h1>Solar System Clock Project</h1>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Ajgruber</h1>
+            <a href="#" class="menu-toggle">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a class="nav-link" href="#">Home</a></li>
+                    <li><a class="nav-link" href="#">Projects</a></li>
+                    <li><a class="nav-link" href="#">About Me</a></li>
+                    <div id="mode-toggle"><i class="indicator"></i></div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h1 class="title">Solar System Clock Project</h1>
     <section class="clock-container">
         <div class="solar-system-clock">
             <div class="time seconds" data-seconds></div>
@@ -118,7 +138,7 @@
     <p class="credit">Check out <strong>Web Dev Simplified</strong> for a full video explaining how to manipulate a date object an create a traditional clock <a href="https://www.youtube.com/watch?v=Ki0XXrlKlHY" target="_blank" rel="noreferrer noopener">here</a></p>
     <section class="introduction">
         <p class="summary">
-            This solar system clock was designed by myself primarily using HTML and CSS. The Javascript portion of this project is used to synchronize the clock with the client's relative time and provide an accurate rate of rotation for each planet.
+            This solar system clock was designed by myself primarily using HTML and CSS. The Javascript portion of this project is used to synchronize the clock with the client's relative time and provide an accurate rate of orbit for each planet.
         </p>
         <p class="summary">Credit is due to <strong>Web Dev Simplified</strong> for providing a technique to model time values from a date object in 360 degrees.</p>
         <p class="note">
@@ -310,7 +330,7 @@
         </section>
     </section>
     
-    <section id="js-container">
+    <section class="js-container">
         <h3 class="subsection">Javascript</h3>
         <p class="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
@@ -351,6 +371,5 @@ setClock();
         <p class="summary">setClock() is the final piece to the project. It initiates the setClock function upon loading!</p>
 
     </section>
-    <script src="main.js"></script>
 </body>
 </html>
