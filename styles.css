@@ -245,10 +245,10 @@ header {
 
 .title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 28px;
+    font-size: 26px;
     text-align: center;
     letter-spacing: 1.5px;
-    margin: 30px 0 30px 0;
+    margin: 30px 0;
     color: var(--LT-header-gray);
     filter: drop-shadow(0 3px 2px var(--LT-header-drop-shadow));
     transition: all 250ms ease-in-out;
